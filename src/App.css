@@ -1,0 +1,190 @@
+.App {
+  text-align: center;
+}
+body{
+  /* height: 1000px; */
+}
+li {
+  list-style: none;
+}
+a{
+  text-decoration: none !important;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navbar {
+  background-color: #712CF9 !important;
+  color: white;
+}
+.navbar a {
+  color: inherit;
+}
+.navbar-toggler  {
+  box-shadow: none !important;
+  background-color: white !important;
+}
+.icon svg {
+  font-size: 24px;
+  margin: 5px;
+}
+.list {
+  position: fixed;
+  top : 90%;
+  left: 80%;
+  margin: auto;
+  width: 300px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 10px;
+  border-radius: 10px;
+  /* background: black; */
+}
+.list svg {
+  color: black;
+  font-size :24px;
+  margin : 10px;
+}
+.list svg:hover {
+  color: #712CF9 ;
+  transform: scale(120%);
+}
+.menu {
+  padding: 40px 10px;
+}
+.menu li {
+  padding: 10px 5px;
+  border-bottom: 1px solid lightgrey;
+  margin: 20px 0px;
+}
+.menu svg {
+  margin: 5px;
+  margin-bottom: 0px;
+  color: #712CF9;
+  font-size: 24px;
+}
+.menu p{
+  text-transform: capitalize;
+  padding-left:40px ;
+  margin-bottom: 0px;
+  color: grey;
+  /* margin : 5px; */
+  font-size: 18px;
+}
+.menu li:hover {
+  background-color: #712CF9;
+  color: white;
+}
+.menu li:hover svg {
+  color:white;
+}
+.menu li:hover p {
+  color:white;
+}
+table tr {
+  padding: 40px !important;
+}
+table th {
+  text-transform: uppercase;
+}
+table td {
+   text-transform: capitalize;
+   padding: 20px;
+}
+table .profile {
+  /* margin: 10px !important; */
+  margin: 20px auto;
+  font-size: 32px;
+  margin: auto;
+  color: white !important;
+  /* background-color: red !important; */
+  border-radius: 50px;
+  line-height: 60px;
+  height: 80px;
+  width: 80px;
+}
+.form div{
+  box-shadow: 1px 1px 10px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.form h5{
+  padding: 5px 50px;
+  text-transform: uppercase;
+  color : grey;
+  font-size: 16px;
+}
+.form input {
+  width: 80%;
+  height: 40px;
+  border-radius: 5px; 
+  /* box-shadow: 1px 1px 10px; */
+  border-color:lightgrey;
+  display: flex;
+  /* border: none; */
+  background-color: white;
+}
+/* .form .submit-btn {
+  padding: 20px 0px;
+  padding-bottom:0px ;
+  box-shadow: none;
+} */
+.form .submit-btn{
+  margin: auto;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  /* margin: auto; */
+  padding: 15px 40px;
+  background-color: #712CF9 ;
+  border: 1px solid #712CF9;
+}
+.form .submit-btn:hover{
+  background-color: transparent;
+  color: #712CF9;
+}
+.form .in {
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-shadow: none !important;
+}
+td a{
+  padding: 10px 20px !important;
+  background-color: #712CF9 !important;
+  color: white !important;
+  border-radius: 5px !important;
+}
