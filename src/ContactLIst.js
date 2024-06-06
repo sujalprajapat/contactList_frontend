@@ -12,8 +12,7 @@ function ContactLIst() {
     console.log();
     // console.log(token);
     useEffect(() => {
-    localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3MTcyNTI4ODQyMDEtODEyOTE0ODc3IiwiaWF0IjoxNzE3MjUyODg0LCJleHAiOjE3MTc0MjU2ODR9.ZFsENsHd9kCjpUzEAj_he7psCGj7CVVX3bTZbIyS02E')
-        axios.get('https://service.apikeeda.com/contact-book', { headers })
+        axios.get('https://contactlist-api.onrender.com/')
             .then(function (response) {
                 // handle success
                 console.log(response.data.data);
@@ -26,14 +25,19 @@ function ContactLIst() {
     }, [])
     return (
         <div>
+            {
+                list.length == 0 ? <div class="loader">
+                <div class="justify-content-center jimu-primary-loading"></div>
+              </div> :
+            
             <table class="table table-striped table-hover " style={{textAlign:"center"}}>
                 <tr>
-                    <th>profile</th>
+                    <th className="px-0">profile</th>
                     <th>firstname</th>
-                    <th>lastname</th>
-                    <th>nickname</th>
+                    <th className="d-none d-sm-table-cell">lastname</th>
+                    <th className="d-none d-lg-table-cell">nickname</th>
                     <th>contact</th>
-                    <th>email</th>
+                    <th className="d-none d-md-table-cell">email</th>
                 </tr>
               
                     {
@@ -44,12 +48,12 @@ function ContactLIst() {
                             count++;
                             return(
                                     <tr>
-                                        <td ><div className="profile" key={ind} style={{backgroundColor:[color[count]]}}>{ele.firstName[0]}</div></td>
+                                        <td className="px-0 px-sm-3"><div className="profile" key={ind} style={{backgroundColor:[color[count]]}}>{ele.firstName[0]}</div></td>
                                         <td>{ele.firstName}</td>
-                                        <td>{ele.lastName}</td>
-                                        <td>{ele.nickName}</td>
+                                        <td className="d-none d-sm-table-cell">{ele.lastName}</td>
+                                        <td className="d-none d-lg-table-cell">{ele.nickName}</td>
                                         <td>{ele.mobileNo}</td>
-                                        <td>{ele.email}</td>
+                                        <td className="d-none d-md-table-cell">{ele.email}</td>
                                     </tr>
                             )
                         })
@@ -57,6 +61,7 @@ function ContactLIst() {
                     
             
             </table>
+            }
         </div>
     )
 }

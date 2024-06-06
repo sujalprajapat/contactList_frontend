@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function Update(){
     var id = useParams(id);
+    var navigate = useNavigate();
     console.log(id.id);
     var [list, setlist] = useState([]);
     var [fname,setfname]= useState('');
@@ -11,6 +12,7 @@ function Update(){
     var [nname,setnname]= useState('');
     var [contact,setcontact]= useState('');
     var [email,setemail]= useState('');
+    var [ck,setck] = useState(true);
     var data = list.find((ele,ind)=>{
         return ele._id == id.id
     })
@@ -28,11 +30,7 @@ function Update(){
         }
     },[data])
     const view=()=>{
-        var token = localStorage.getItem('token');
-        const headers = {
-            Authorization: token
-        }
-        axios.get('https://service.apikeeda.com/contact-book', { headers })
+        axios.get('https://contactlist-api.onrender.com/')
         .then(function (response) {
             // handle success
             console.log(response.data.data);
@@ -44,20 +42,17 @@ function Update(){
         })
     }
     const updatedata=()=>{
-        var token = localStorage.getItem('token');
-        const headers = {
-            Authorization: token
-        }
-        console.log("id",token);
-        axios.patch('https://service.apikeeda.com/contact-book/'+id.id, {
+        setck(false);
+        axios.patch('https://contactlist-api.onrender.com/'+id.id, {
             firstName: fname,
             lastName: lname,
             mobileNo: contact,
             email: email,
             nickName: nname,
-          },{headers})
+          })
           .then(function (response) {
             console.log(response);
+            navigate('/contact');
           })
           .catch(function (error) {
             console.log(error);
@@ -87,7 +82,10 @@ function Update(){
         <div className="in">
         <input type="text" onChange={(e)=>{setnname(e.target.value)}} value={nname}></input>
         </div>
-        <div className="submit-btn d-flex justify-content-center" onClick={()=>{updatedata()}}><Link to="/contact">submit</Link></div>
+        <button type="submit"  className="submit-btn d-flex justify-content-center mt-2" onClick={()=>{updatedata()}}>
+            {
+                ck ? "update" : "updating..."
+            }</button>
         </div>
 
     </div>

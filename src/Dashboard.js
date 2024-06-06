@@ -45,7 +45,7 @@ const navigate = useNavigate();
             <Navbar.Brand className='p-4' style={{color:"white"}}> CONTACT LIST </Navbar.Brand>
             </div>
             <div>
-            <Form className="d-flex">
+            <Form className="d-none d-lg-flex">
                   <Form.Control
                     type="search"
                     placeholder="Search"
@@ -56,7 +56,7 @@ const navigate = useNavigate();
                   <Button variant="outline-light">Search</Button>
                 </Form>
             </div>
-            <div className='icon'>
+            <div className='icon d-none d-sm-flex'>
                 <Link to="/">   <MdPermContactCalendar></MdPermContactCalendar>
                 </Link>
             <Link to="/contact">
@@ -71,9 +71,9 @@ const navigate = useNavigate();
         </Navbar>
       ))}
     </>
-    <div className='list d-flex justify-content-around'>
-        
-    <Link to="/">   <MdPermContactCalendar></MdPermContactCalendar>
+    <div className='list'>
+    <Link to="/">   
+              <MdPermContactCalendar></MdPermContactCalendar>
                 </Link>
             <Link to="/contact">
             <RiContactsLine ></RiContactsLine>
