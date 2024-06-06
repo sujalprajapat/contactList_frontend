@@ -60,7 +60,7 @@ function Update(){
     }
     return(
         <div className="form">
-        <div style={{width:'500px',margin:"auto"}}>
+        <div className="form1" style={{margin:"auto"}}>
         <h2 style={{textAlign:"center" , textTransform:"uppercase",color:"#712CF9",borderBottom:"1px solid lightgrey",paddingBottom:"20px"}}>update contact</h2>
         <h5>firstName</h5>
         <div className="in">
