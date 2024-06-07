@@ -36,7 +36,7 @@ const navigate = useNavigate();
                     style={{width:"400px"}}
                     onChange={(e)=>{setval(e.target.value)}}
                   />
-                  <Link to={`/search/` + val} variant="outline-success">Search</Link>
+                  <Link to={`/search/` + val} className='search'>Search</Link>
                 </Form>
                     <ul className='menu'>
                         <li><Link to="/" className='d-flex align-items-center'><MdPermContactCalendar></MdPermContactCalendar><p>contact list</p></Link></li>
@@ -57,7 +57,7 @@ const navigate = useNavigate();
                     style={{width:"400px"}}
                     onChange={(e)=>{setval(e.target.value)}}
                   />
-                  <Link to={`/search/`+val} variant="outline-success">Search</Link>
+                  <Link to={`/search/`+val} className='search'>Search</Link>
                   </Form>
             </div>
             <div className='icon d-none d-sm-flex'>
@@ -84,7 +84,6 @@ const navigate = useNavigate();
             </Link>
             <Link to="/add/contact">
             <CiSquarePlus></CiSquarePlus>
-
             </Link>
     </div>
       

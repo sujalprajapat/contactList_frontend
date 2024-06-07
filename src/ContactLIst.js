@@ -36,9 +36,9 @@ function ContactLIst() {
     return (
         <div>
             {
-                rows.length == 0 ? <div class="loader">
-                <div class="justify-content-center jimu-primary-loading"></div>
-              </div> :
+            //     rows.length == 0 ? <div class="loader">
+            //     <div class="justify-content-center jimu-primary-loading"></div>
+            //   </div> :
             
             <table class="table table-striped table-hover " style={{textAlign:"center"}}>
                 <tr>

@@ -305,3 +305,14 @@ td a{
     height: 40px;
   }
 }
+.search {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid white;
+  border-radius: 5px ;
+}
+.search:hover {
+  background-color:white;
+  color: #712CF9;
+}
