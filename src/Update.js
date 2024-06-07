@@ -64,7 +64,7 @@ function Update(){
         <h2 style={{textAlign:"center" , textTransform:"uppercase",color:"#712CF9",borderBottom:"1px solid lightgrey",paddingBottom:"20px"}}>update contact</h2>
         <h5>firstName</h5>
         <div className="in">
-            <input type="text" onChange={(e)=>{setfname(e.target.value)}} value={fname} class="form-control" id="validationCustom01" required></input><br></br>
+            <input type="text" onChange={(e)=>{setfname(e.target.value)}} value={fname}></input><br></br>
         </div>
         <h5>lastName</h5>
         <div className="in">

@@ -7,6 +7,7 @@ import ContactForm from './ContactForm';
 import Update from './Update';
 import { Route, Routes } from 'react-router-dom';
 import Contact from './Contact';
+import Search from './search';
 function App() {
   return (
       <div>
@@ -15,6 +16,7 @@ function App() {
           <Route path="/add/contact" element={<> <Dashboard/><ContactForm/></>} />
           <Route path="/contact" element={<> <Dashboard/><Contact/></>} />
           <Route path="/update/:id" element={<> <Dashboard/><Update/></>} />
+          <Route path="/search/:test" element={<><Dashboard/><Search/></>} />
       </Routes>
       </div>
   );

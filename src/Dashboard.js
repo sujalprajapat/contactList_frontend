@@ -4,7 +4,9 @@ import { RiContactsLine } from "react-icons/ri";
 import { CiSquarePlus } from "react-icons/ci";
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Contact from './Contact';
+import { useState } from 'react';
 function Dashboard(){
+  var [val,setval]=useState("");
 const navigate = useNavigate();
     return(
         <div>
@@ -32,8 +34,9 @@ const navigate = useNavigate();
                     className="me-2"
                     aria-label="Search"
                     style={{width:"400px"}}
+                    onChange={(e)=>{setval(e.target.value)}}
                   />
-                  <Button variant="outline-success">Search</Button>
+                  <Link to={`/search/` + val} variant="outline-success">Search</Link>
                 </Form>
                     <ul className='menu'>
                         <li><Link to="/" className='d-flex align-items-center'><MdPermContactCalendar></MdPermContactCalendar><p>contact list</p></Link></li>
@@ -52,9 +55,10 @@ const navigate = useNavigate();
                     className="me-2"
                     aria-label="Search"
                     style={{width:"400px"}}
+                    onChange={(e)=>{setval(e.target.value)}}
                   />
-                  <Button variant="outline-light">Search</Button>
-                </Form>
+                  <Link to={`/search/`+val} variant="outline-success">Search</Link>
+                  </Form>
             </div>
             <div className='icon d-none d-sm-flex'>
                 <Link to="/">   <MdPermContactCalendar></MdPermContactCalendar>
