@@ -60,9 +60,9 @@ a{
   font-size: 24px;
   margin: 5px;
 }
-.list {
+.list , .list1 {
   position: fixed;
-  top : 80%;
+  top : 90%;
   left: 80%;
   /* margin: auto; */
   width: 200px;
@@ -71,7 +71,7 @@ a{
   box-shadow: 1px 1px 10px;
   border-radius: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   /* background: black; */
 }
 .list svg {
@@ -80,6 +80,21 @@ a{
   margin : 10px;
 }
 .list svg:hover {
+  color: #712CF9 ;
+  transform: scale(120%);
+}
+.list1 {
+  height: 64px;
+  align-items: center;
+  left: 10%;
+  padding: 0px 10px;
+}
+.list1 a {
+  color: black;
+  font-size :24px;
+  margin : 10px;
+}
+.list1 a:hover {
   color: #712CF9 ;
   transform: scale(120%);
 }
@@ -195,8 +210,15 @@ td a{
 }
 @media (max-width:1024px){
   .list{
+    padding: 0px 10px;
       left: calc(50% - 100px);
-      top: calc(100% - 70px);
+      top: calc(100% - 50px);
+  }
+  .list1{
+    height: 44px;
+    padding: 0px 10px;
+    left: calc(50% - 100px);
+    top: calc(100% - 100px);
   }
 }
 @media (max-width:400px){

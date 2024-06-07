@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function ContactLIst() {
+    var perpage= 4;
+    const [currentpage,setcurrentpage]=useState(0);
     var [list, setlist] = useState([]);
-    var token = localStorage.getItem('token');
-    var count=0;
-    const headers = {
-        Authorization: token
+    // var count=0;
+    const handlepage=(pageno)=>{
+        setcurrentpage(pageno);
     }
     var color=["pink","yellow","lightgreen","darkgreen","aqua","lightgrey","red","orange","gold","black"];
     console.log();
@@ -16,17 +18,25 @@ function ContactLIst() {
             .then(function (response) {
                 // handle success
                 console.log(response.data.data);
-                setlist(response.data.data)
+                const newList = response.data.data.map((item, index) => ({
+                    ...item,
+                    color: color[index % color.length] // Assign color from the color array based on index
+                }));
+                setlist(newList);
+                // setlist(response.data.data)
             })
             .catch(function (error) {
                 // handle error
                 console.log(error);
             })
     }, [])
+    var numberofpages = Math.ceil(list.length/perpage);
+    var pageindex = Array.from({length : numberofpages},(_,ind)=>ind+1)
+    var rows = list.slice(currentpage*perpage,(currentpage+1)*perpage);
     return (
         <div>
             {
-                list.length == 0 ? <div class="loader">
+                rows.length == 0 ? <div class="loader">
                 <div class="justify-content-center jimu-primary-loading"></div>
               </div> :
             
@@ -41,14 +51,10 @@ function ContactLIst() {
                 </tr>
               
                     {
-                        list.map((ele,ind)=>{
-                            if(count == color.length-1){
-                                count=0;
-                            }
-                            count++;
+                        rows.map((ele,ind)=>{
                             return(
                                     <tr>
-                                        <td className="px-0 px-sm-3"><div className="profile" key={ind} style={{backgroundColor:[color[count]]}}>{ele.firstName[0]}</div></td>
+                                        <td className="px-0 px-sm-3"><div className="profile" key={ind} style={{backgroundColor:[ele.color]}}>{ele.firstName[0]}</div></td>
                                         <td>{ele.firstName}</td>
                                         <td className="d-none d-sm-table-cell">{ele.lastName}</td>
                                         <td className="d-none d-lg-table-cell">{ele.nickName}</td>
@@ -62,6 +68,15 @@ function ContactLIst() {
             
             </table>
             }
+            <div className="list1">
+            <Link style={currentpage < 1 ? {display:"none"} : {display:"block"}} onClick={()=>{handlepage(currentpage-1)}}>&lt;</Link>
+            {
+                    pageindex.slice(Math.max(0,currentpage -2),Math.min(numberofpages,currentpage+1)).map((ele,ind)=>{
+                        return <Link className={currentpage == ele ? "active" : ""} onClick={()=>{handlepage(ele-1)}}>{ele}</Link>
+                    })
+            }
+            <Link  style={currentpage >= numberofpages-1 ? {display:"none"} : {display:"block"}} onClick={()=>{handlepage(currentpage+1)}}>&gt;</Link>
+            </div>
         </div>
     )
 }

@@ -76,9 +76,9 @@ const navigate = useNavigate();
       ))}
     </>
     <div className='list'>
-    <Link to="/">   
+            <Link to="/">   
               <MdPermContactCalendar></MdPermContactCalendar>
-                </Link>
+            </Link>
             <Link to="/contact">
             <RiContactsLine ></RiContactsLine>
             </Link>
